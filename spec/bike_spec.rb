@@ -1,8 +1,8 @@
-require_relative "../lib/bike"
+require_relative '../lib/bike'
 
 describe Bike do
 
-	let(:bike) {Bike.new}
+	let(:bike) { Bike.new }
 	
 	it "should not be broken after we create it" do
 		expect(bike).not_to be_broken
