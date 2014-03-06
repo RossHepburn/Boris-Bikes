@@ -40,6 +40,23 @@ describe BikeContainer do
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 
+	it "should not release bike if not there" do
+		expect(lambda{ holder.release(bike) }).to raise_error(RuntimeError)
+	end
+
+	it "should raise an error if the argument is nil" do
+		expect(lambda{ holder.release(nil) }).to raise_error(RuntimeError)
+	end
+
+	it "should raise an error if the argument is nil" do
+		expect(lambda{ holder.dock(nil) }).to raise_error(RuntimeError)
+	end
+
+	it "should raise an error if argument is not a bike" do
+		expect(lambda{ holder.dock("random") }).to raise_error(RuntimeError)
+	end
+
+
 	def fill_holder(holder)
 		holder.capacity.times { holder.dock(Bike.new) }
 	end
