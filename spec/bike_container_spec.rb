@@ -56,6 +56,8 @@ describe BikeContainer do
 		expect(lambda{ holder.dock("random") }).to raise_error(RuntimeError)
 	end
 
+	
+
 
 	def fill_holder(holder)
 		holder.capacity.times { holder.dock(Bike.new) }
