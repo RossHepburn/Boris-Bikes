@@ -12,4 +12,13 @@ class DockingStation
 	def empty?
 		bikes == []
 	end
+
+	def broken_bikes
+		bikes - available_bikes
+	end
+
+	def release_broken
+		bikes.reject! { |bike| bike.broken? }
+	end
+
 end

@@ -13,4 +13,21 @@ describe DockingStation do
   	expect(station).not_to be_empty
   end
 
+  it "should provide a list of broken bikes" do 
+		working_bike, broken_bike = Bike.new, Bike.new
+		broken_bike.break
+		station.dock(broken_bike)
+		station.dock(working_bike)
+		expect(station.broken_bikes).to eq [broken_bike]
+	end
+
+	it "should release broken bikes" do
+		working_bike, broken_bike = Bike.new, Bike.new
+		broken_bike.break
+		station.dock(broken_bike)
+		station.dock(working_bike)
+		station.release_broken
+		expect(station.broken_bikes).to be_empty
+	end
+
 end
