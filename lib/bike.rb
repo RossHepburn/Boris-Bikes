@@ -1,6 +1,6 @@
 class Bike
 	
-	def inititialize
+	def initialize
 		fix
 	end
 	
