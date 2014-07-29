@@ -1,9 +1,12 @@
-require_relative '../lib/bike_container'
-require_relative '../lib/van'
-require_relative '../lib/docking_station'
-require_relative '../lib/bike'
+require './lib/bike_container'
+require './lib/van'
+require './lib/docking_station'
+require './lib/bike'
 
 describe Van do 
+
+	let (:van) {Van.new}
+	let(:DockingStation) {DockingStation.new}
 	
 	it "should collect broken bikes from a station" do 
 		station = DockingStation.new
