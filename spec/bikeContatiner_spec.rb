@@ -32,8 +32,18 @@ describe BikeContainer do
 		expect(holder.full?).to be_true
 	end
 
+	it "does not dock a bike if full" do
+		fill_holder(holder)
+		expect{holder.dock(bike)}.to raise_error(RuntimeError)
+	end
+
 	it "knows its empty" do
 		expect(holder.empty?).to be_true
 	end
+
+	it "does not release a bike if empty" do
+		expect{holder.empty_holder(bike)}.to raise_error(RuntimeError)
+	end
+
 
 end

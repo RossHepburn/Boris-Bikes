@@ -19,7 +19,12 @@ module BikeContainer
 	end
 
 	def dock(bike)
+		raise "Dock is full" if full?
 		bikes << bike
+	end
+
+	def empty_holder(bike)
+		raise "No bikes available" if empty?
 	end
 
 	def release(bike)
@@ -34,5 +39,5 @@ module BikeContainer
 		bike_count() == 0
 	end
 
-	
+
 end
