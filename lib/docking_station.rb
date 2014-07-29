@@ -1,7 +1,6 @@
-require_relative 'bike_container'
-require_relative 'bike'
+require 'bike_container'
 
-class DockingStation 
+class DockingStation
 
 	include BikeContainer
 
@@ -10,15 +9,6 @@ class DockingStation
 	end
 
 	def empty?
-		bikes == []
+		@bikes == nil
 	end
-
-	def broken_bikes
-		bikes - available_bikes
-	end
-
-	def release_broken
-		bikes.reject! { |bike| bike.broken? }
-	end
-
 end
