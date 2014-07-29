@@ -25,4 +25,15 @@ describe BikeContainer do
 		holder.release(bike)
 		expect(holder.bike_count).to eq(0)
 	end
+
+	it "knows its full" do
+		expect(holder.full?).to be_false
+		fill_holder(holder)
+		expect(holder.full?).to be_true
+	end
+
+	it "knows its empty" do
+		expect(holder.empty?).to be_true
+	end
+
 end
