@@ -2,12 +2,13 @@ require 'bike'
 require 'bikeContainer'
 require 'dockingStation'
 require 'van'
-
+require 'garage'
 describe Van do 
 	let (:station) {DockingStation.new}
 	let (:van) {Van.new}
 	let (:working_bike) {Bike.new}
 	let (:broken_bike) {Bike.new}
+	let (:garage) {Garage.new}
 
 	it "intitialises with default capacity" do
 		expect(van.capacity).to eq(25)
@@ -20,12 +21,19 @@ describe Van do
 		end
 
 		
-		it "picks up broken bikes from dock" do
-			broken_bike.break
+		it "picks up bikes from dock" do
 			station.dock(broken_bike)
 			van.pickup_broken_bikes_from(station)
 			expect(van.bikes).to include(broken_bike)
 		end
+
+		it "drops off bikes to the garage" do
+			van.dock(broken_bike)
+			van.dropoff_broken_bikes_to(garage)
+			expect(van.bikes).to be_empty
+			expect(garage.bikes).to include(broken_bike)
+		end
+
 	end
 
 	context "dealing with available bikes" do
