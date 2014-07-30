@@ -3,10 +3,10 @@
 [Makers Academy](www.makersacademy.com) week 3 assignment, set by [@shadchnev](https://github.com/shadchnev), to replicate the functionality of London's Boris Bikes initiative. The project's goal was introduce students to Object-Oriented Programming and Design while using Test Driven Development.
 
 ###Specifications
-Bikes should be able to be docked and released from docking stations. Any broken bikes need to be picked up by a van which can drop them at the Garage to be fixed and then take them back to the station once repaired.
+````Bikes```` should be able to be docked and released from ````docking stations````. Any broken bikes need to be picked up by a ````van```` which can drop them at the ````garage```` to be fixed and then take them back to the station once repaired.
 
 
-###Technologies used
+###Technologies
 
 * Ruby
 * Test driven development with rspec
