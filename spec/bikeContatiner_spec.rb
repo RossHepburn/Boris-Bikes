@@ -61,9 +61,6 @@ describe BikeContainer do
 		it "should provide the list of broken bikes" do
 			expect(holder.broken_bikes).to include(@broken_bike)
 		end
-
+		
 	end
-
-
-
 end
