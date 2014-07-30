@@ -46,7 +46,4 @@ module BikeContainer
 	def broken_bikes
 		bikes.select {|bike| bike.broken? }
 	end
-
-
-
 end
