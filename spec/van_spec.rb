@@ -12,4 +12,15 @@ describe Van do
 	it "intitialises with default capacity" do
 		expect(van.capacity).to eq(25)
 	end
+
+	context "available bikes" do
+
+		it "transports bikes to dock" do
+			van.dock(working_bike)
+			van.dropoff_working_bikes_to(station)
+			expect(station.bikes).to include(working_bike)
+			expect(van).to be_empty
+		end
+	end
+
 end
