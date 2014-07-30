@@ -45,5 +45,25 @@ describe BikeContainer do
 		expect{holder.empty_holder(bike)}.to raise_error(RuntimeError)
 	end
 
+	context "with a working bike and a fixed bike" do
+
+		before do
+			@working_bike, @broken_bike = Bike.new, Bike.new
+			@broken_bike.break
+			holder.dock(@working_bike)
+			holder.dock(@broken_bike)
+		end
+
+		it "should provide the list of available bikes" do 
+			expect(holder.available_bikes).to include(@working_bike)
+		end
+
+		it "should provide the list of broken bikes" do
+			expect(holder.broken_bikes).to include(@broken_bike)
+		end
+
+	end
+
+
 
 end
