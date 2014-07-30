@@ -19,6 +19,7 @@ class Van
 			self.broken_bikes.each {|bike| self.release(bike); garage.dock(bike)}
 	end
 
-
-
+	def pickup_working_bikes_from(garage)
+		garage.available_bikes.each {|bike| garage.release(bike); self.dock(bike)}
+	end
 end

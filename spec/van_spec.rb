@@ -20,7 +20,6 @@ describe Van do
 			broken_bike.break
 		end
 
-		
 		it "picks up bikes from dock" do
 			station.dock(broken_bike)
 			van.pickup_broken_bikes_from(station)
@@ -44,5 +43,13 @@ describe Van do
 			expect(station.bikes).to include(working_bike)
 			expect(van).to be_empty
 		end
+
+		it "picks up bikes from garage" do
+			garage.dock(working_bike)
+			van.pickup_working_bikes_from(garage)
+			expect(van.bikes).to include(working_bike)
+			expect(garage).to be_empty
+		end
+
 	end
 end
