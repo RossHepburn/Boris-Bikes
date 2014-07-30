@@ -13,14 +13,28 @@ describe Van do
 		expect(van.capacity).to eq(25)
 	end
 
-	context "available bikes" do
+	context "dealing with broken bikes" do
 
-		it "transports bikes to dock" do
+		before do
+			broken_bike.break
+		end
+
+		
+		it "picks up broken bikes from dock" do
+			broken_bike.break
+			station.dock(broken_bike)
+			van.pickup_broken_bikes_from(station)
+			expect(van.bikes).to include(broken_bike)
+		end
+	end
+
+	context "dealing with available bikes" do
+
+		it "drops off bikes to dock" do
 			van.dock(working_bike)
 			van.dropoff_working_bikes_to(station)
 			expect(station.bikes).to include(working_bike)
 			expect(van).to be_empty
 		end
 	end
-
 end
